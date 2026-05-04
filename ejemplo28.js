@@ -1,85 +1,48 @@
-function fnCombinarVectoresOrdenados() {
-
+function fnCribaEratostenes() {
     let html = `
-        <label for="array1Input">Vector 1 (separado por comas):</label>
-        <input type="text" id="array1Input" placeholder="Ej: 1,3,5,7">
-
-        <label for="array2Input">Vector 2 ( separado por comas):</label>
-        <input type="text" id="array2Input" placeholder="Ej: 2,4,6,8">
-
-        <button id="btnCombinar27">Combinar</button>
-
-        <p id="resultado27"></p>
+        <label for="cribaInput">Límite para buscar primos:</label>
+        <input type="number" id="cribaInput" placeholder="Ej: 50">
+        <button id="btnCriba28">Generar Primos</button>
+        <p id="resultado28"></p>
     `;
 
     document.getElementById("cajas").innerHTML = html;
 
-    // Función que combina dos arrays ordenados usando while
-    function mergeSortedArrays(arr1, arr2) {
-        let i = 0, j = 0;
-        let combinado = [];
+    // Lógica del algoritmo de la Criba de Eratóstenes
+    function criba(n) {
+        let primos = new Array(n + 1).fill(true);
+        primos[0] = primos[1] = false;
 
-        while (i < arr1.length && j < arr2.length) {
-            if (arr1[i] <= arr2[j]) {
-                combinado.push(arr1[i]);
-                i++;
-            } else {
-                combinado.push(arr2[j]);
-                j++;
+        for (let p = 2; p * p <= n; p++) {
+            if (primos[p]) {
+                for (let i = p * p; i <= n; i += p)
+                    primos[i] = false;
             }
         }
 
-        // Agregar elementos restantes
-        while (i < arr1.length) {
-            combinado.push(arr1[i]);
-            i++;
+        let resultado = [];
+        for (let i = 2; i <= n; i++) {
+            if (primos[i]) resultado.push(i);
         }
-
-        while (j < arr2.length) {
-            combinado.push(arr2[j]);
-            j++;
-        }
-
-        return combinado;
-    }
-
-    // Función que muestra el resultado usando outerHTML
-    function updateResult(result) {
-        document.getElementById("resultado27").outerHTML = `
-            <p id="resultado27">
-                 <strong>Vector combinado:</strong><br>
-                [ ${result.join(", ")} ]
-            </p>
-        `;
+        return resultado;
     }
 
     // Acción del botón
-    document.getElementById("btnCombinar27").onclick = function () {
+    document.getElementById("btnCriba28").onclick = function () {
+        let limite = parseInt(document.getElementById("cribaInput").value);
 
-        let text1 = document.getElementById("array1Input").value.trim();
-        let text2 = document.getElementById("array2Input").value.trim();
-
-        if (text1 === "" || text2 === "") {
-            document.getElementById("resultado27").outerHTML =
-                `<p id="resultado27"> Ingresa ambos vectores.</p>`;
+        if (isNaN(limite) || limite < 2) {
+            document.getElementById("resultado28").innerHTML = "Ingresa un número mayor o igual a 2.";
             return;
         }
 
-        let arr1 = text1.split(",").map(n => parseFloat(n.trim()));
-        let arr2 = text2.split(",").map(n => parseFloat(n.trim()));
-
-        if (arr1.some(isNaN) || arr2.some(isNaN)) {
-            document.getElementById("resultado27").outerHTML =
-                `<p id="resultado27"> Todos los elementos deben ser números válidos.</p>`;
-            return;
-        }
-
-        let resultado = mergeSortedArrays(arr1, arr2);
-
-        updateResult(resultado);
+        let listaPrimos = criba(limite);
+        document.getElementById("resultado28").innerHTML = 
+            `<strong>Números primos hasta ${limite}:</strong><br>` + listaPrimos.join(", ");
     };
 
     return "✅";
 }
 
-export { fnCombinarVectoresOrdenados };
+// CRITICO: Asegúrate de que el nombre exportado coincida con lo que busca principal.js
+export { fnCribaEratostenes };

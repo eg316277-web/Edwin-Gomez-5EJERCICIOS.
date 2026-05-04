@@ -40,11 +40,12 @@
         <div class="controles">
             <select id="operacion">
                 <option value="" disabled selected>-- Selecciona un Ejercicio --</option>
-                <option value="eje26">Ejercicio 26: Subarray Máximo</option>
-                <option value="eje27">Ejercicio 27: Combinar Vectores</option>
-                <option value="eje28">Ejercicio 28: Criba de Eratóstenes</option>
-                <option value="eje29">Ejercicio 29: Multiplicación de Matrices</option>
-                <option value="eje30">Ejercicio 30: Ordenamiento Merge Sort</option>
+                <!-- Se ajustan los values para que coincidan con el switch de principal.js -->
+                <option value="ejemplo26">Ejercicio 26: Subarray Máximo</option>
+                <option value="ejemplo27">Ejercicio 27: Combinar Vectores</option>
+                <option value="ejemplo28">Ejercicio 28: Criba de Eratóstenes</option>
+                <option value="ejemplo29">Ejercicio 29: Multiplicación de Matrices</option>
+                <option value="ejemplo30">Ejercicio 30: Ordenamiento Merge Sort</option>
             </select>
             <button id="ejecutar">Cargar Interfaz</button>
         </div>
@@ -52,13 +53,13 @@
         <!-- Estado de la carga -->
         <div id="resultados">Selecciona una opción y presiona "Cargar Interfaz"</div>
 
-        <!-- Área dinámica para los ejercicios del ZIP -->
+        <!-- Área dinámica para los ejercicios -->
         <div id="cajas">
             Aquí aparecerán los controles del ejercicio seleccionado.
         </div>
     </div>
 
-    <!-- Importante: type="module" para usar los import de principal.js -->
-    <script type="module" src="js/principal.js"></script>
+    <!-- Se actualiza la ruta según tu estructura de archivos[cite: 1] -->
+    <script type="module" src="archivos.js/principal.js"></script>
 </body>
 </html>

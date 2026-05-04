@@ -1,5 +1,5 @@
-export * as eje26 from "./eje26.js"
-export * as eje27 from "./eje27.js"
-export * as eje28 from "./eje28.js"
-export * as eje29 from "./eje29.js"
-export * as eje30 from "./eje30.js"
+export * as ejemplo26 from "../ejemplo26.js";
+export * as ejemplo27 from "../ejemplo27.js";
+export * as ejemplo28 from "../ejemplo28.js";
+export * as ejemplo29 from "../ejemplo29.js";
+export * as ejemplo30 from "../ejemplo30.js";
