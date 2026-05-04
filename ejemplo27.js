@@ -1,67 +1,53 @@
-function fnCombinarVectoresOrdenados() {
+/**
+ * Lógica pura: combina dos arrays ya ordenados en uno solo de forma eficiente.
+ * Se exporta para las pruebas unitarias.
+ */
+export function mergeSortedArrays(arr1, arr2) {
+    let i = 0, j = 0;
+    let combinado = [];
 
+    while (i < arr1.length && j < arr2.length) {
+        if (arr1[i] <= arr2[j]) {
+            combinado.push(arr1[i]);
+            i++;
+        } else {
+            combinado.push(arr2[j]);
+            j++;
+        }
+    }
+
+    // Agregar elementos restantes si los hay
+    while (i < arr1.length) {
+        combinado.push(arr1[i]);
+        i++;
+    }
+
+    while (j < arr2.length) {
+        combinado.push(arr2[j]);
+        j++;
+    }
+
+    return combinado;
+}
+
+function fnCombinarVectoresOrdenados() {
     let html = `
         <label for="array1Input">Vector 1 (separado por comas):</label>
         <input type="text" id="array1Input" placeholder="Ej: 1,3,5,7">
-
         <label for="array2Input">Vector 2 ( separado por comas):</label>
         <input type="text" id="array2Input" placeholder="Ej: 2,4,6,8">
-
         <button id="btnCombinar27">Combinar</button>
-
         <p id="resultado27"></p>
     `;
 
     document.getElementById("cajas").innerHTML = html;
 
-    // Función que combina dos arrays ordenados usando while
-    function mergeSortedArrays(arr1, arr2) {
-        let i = 0, j = 0;
-        let combinado = [];
-
-        while (i < arr1.length && j < arr2.length) {
-            if (arr1[i] <= arr2[j]) {
-                combinado.push(arr1[i]);
-                i++;
-            } else {
-                combinado.push(arr2[j]);
-                j++;
-            }
-        }
-
-        // Agregar elementos restantes
-        while (i < arr1.length) {
-            combinado.push(arr1[i]);
-            i++;
-        }
-
-        while (j < arr2.length) {
-            combinado.push(arr2[j]);
-            j++;
-        }
-
-        return combinado;
-    }
-
-    // Función que muestra el resultado usando outerHTML
-    function updateResult(result) {
-        document.getElementById("resultado27").outerHTML = `
-            <p id="resultado27">
-                 <strong>Vector combinado:</strong><br>
-                [ ${result.join(", ")} ]
-            </p>
-        `;
-    }
-
-    // Acción del botón
     document.getElementById("btnCombinar27").onclick = function () {
-
         let text1 = document.getElementById("array1Input").value.trim();
         let text2 = document.getElementById("array2Input").value.trim();
 
         if (text1 === "" || text2 === "") {
-            document.getElementById("resultado27").outerHTML =
-                `<p id="resultado27"> Ingresa ambos vectores.</p>`;
+            document.getElementById("resultado27").innerHTML = "Ingresa ambos vectores.";
             return;
         }
 
@@ -69,14 +55,17 @@ function fnCombinarVectoresOrdenados() {
         let arr2 = text2.split(",").map(n => parseFloat(n.trim()));
 
         if (arr1.some(isNaN) || arr2.some(isNaN)) {
-            document.getElementById("resultado27").outerHTML =
-                `<p id="resultado27"> Todos los elementos deben ser números válidos.</p>`;
+            document.getElementById("resultado27").innerHTML = "Todos los elementos deben ser números válidos.";
             return;
         }
 
+        // Llamada a la función lógica exportada
         let resultado = mergeSortedArrays(arr1, arr2);
 
-        updateResult(resultado);
+        document.getElementById("resultado27").innerHTML = `
+             <strong>Vector combinado:</strong><br>
+             [ ${resultado.join(", ")} ]
+        `;
     };
 
     return "✅";
