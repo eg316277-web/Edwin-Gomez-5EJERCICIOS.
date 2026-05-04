@@ -1,4 +1,4 @@
-import * as combine from "./combine.js";[cite: 1]
+import * as combine from "./combine.js";
 
 const operacionSelect = document.getElementById("operacion");
 const resultadosDiv = document.getElementById("resultados");
