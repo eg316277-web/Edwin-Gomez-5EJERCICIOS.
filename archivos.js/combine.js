@@ -1,0 +1,5 @@
+export * as eje26 from "./eje26.js"
+export * as eje27 from "./eje27.js"
+export * as eje28 from "./eje28.js"
+export * as eje29 from "./eje29.js"
+export * as eje30 from "./eje30.js"
