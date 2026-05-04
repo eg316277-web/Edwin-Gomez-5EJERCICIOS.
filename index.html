@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visor de Ejercicios - Rama Edwin</title>
+    <title>Visor de Ejercicios - horizont</title>
     <style>
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 30px; background-color: #f4f4f9; }
         .container { max-width: 800px; margin: auto; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
@@ -12,35 +12,20 @@
         select, button { padding: 10px; border-radius: 5px; border: 1px solid #ccc; font-size: 16px; }
         button { background-color: #007bff; color: white; cursor: pointer; border: none; transition: 0.3s; }
         button:hover { background-color: #0056b3; }
-        
-        /* Contenedor donde se inyectan los ejercicios */
-        #cajas { 
-            margin-top: 20px; 
-            padding: 20px; 
-            border: 2px dashed #007bff; 
-            border-radius: 8px; 
-            min-height: 100px;
-            background-color: #fafafa;
-        }
-
-        #resultados { margin-top: 15px; font-weight: bold; padding: 10px; border-radius: 5px; }
-        .result-success { color: #155724; background-color: #d4edda; border: 1px solid #c3e6cb; }
-        .result-error { color: #721c24; background-color: #f8d7da; border: 1px solid #f5c6cb; }
-        
-        /* Estilos para las tablas de matrices del ejercicio 29 */
-        table { margin-top: 10px; border-collapse: collapse; }
+        #cajas { margin-top: 20px; padding: 20px; border: 2px dashed #007bff; border-radius: 8px; min-height: 100px; background-color: #fafafa; }
+        #resultados { margin-top: 15px; font-weight: bold; padding: 10px; border-radius: 5px; text-align: center; }
+        .status-testing { margin-top: 25px; padding-top: 15px; border-top: 1px solid #eee; text-align: center; font-size: 14px; color: #666; }
+        .status-testing img { vertical-align: middle; margin-left: 10px; }
+        table { margin-top: 10px; border-collapse: collapse; width: 100%; }
         td { border: 1px solid #333; padding: 10px; text-align: center; }
     </style>
 </head>
 <body>
-
     <div class="container">
         <h1>Panel de Ejercicios (26-30)</h1>
-        
         <div class="controles">
             <select id="operacion">
                 <option value="" disabled selected>-- Selecciona un Ejercicio --</option>
-                <!-- Se ajustan los values para que coincidan con el switch de principal.js -->
                 <option value="ejemplo26">Ejercicio 26: Subarray Máximo</option>
                 <option value="ejemplo27">Ejercicio 27: Combinar Vectores</option>
                 <option value="ejemplo28">Ejercicio 28: Criba de Eratóstenes</option>
@@ -49,17 +34,17 @@
             </select>
             <button id="ejecutar">Cargar Interfaz</button>
         </div>
-
-        <!-- Estado de la carga -->
         <div id="resultados">Selecciona una opción y presiona "Cargar Interfaz"</div>
-
-        <!-- Área dinámica para los ejercicios -->
-        <div id="cajas">
-            Aquí aparecerán los controles del ejercicio seleccionado.
+        <div id="cajas">Aquí aparecerán los controles del ejercicio seleccionado.</div>
+        
+        <div class="status-testing">
+            <span>Estado de las Pruebas Unitarias (Jest):</span>
+            <!-- Asegúrate de cambiar 'horizont' y 'Edwin-Gomez-5EJERCICIOS' por tus datos reales de GitHub -->
+            <a href="https://github.com/horizont/Edwin-Gomez-5EJERCICIOS/actions" target="_blank">
+                <img src="https://github.com/horizont/Edwin-Gomez-5EJERCICIOS/actions/workflows/nodejs-test.yml/badge.svg" alt="Estado del Testing">
+            </a>
         </div>
     </div>
-
-    <!-- Se actualiza la ruta según tu estructura de archivos[cite: 1] -->
     <script type="module" src="archivos.js/principal.js"></script>
 </body>
 </html>
