@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visor de Ejercicios - horizont</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 30px; background-color: #f4f4f9; }
+        .container { max-width: 800px; margin: auto; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        h1 { color: #333; text-align: center; }
+        .controles { display: flex; gap: 10px; margin-bottom: 20px; justify-content: center; }
+        select, button { padding: 10px; border-radius: 5px; border: 1px solid #ccc; font-size: 16px; }
+        button { background-color: #007bff; color: white; cursor: pointer; border: none; transition: 0.3s; }
+        button:hover { background-color: #0056b3; }
+        #cajas { margin-top: 20px; padding: 20px; border: 2px dashed #007bff; border-radius: 8px; min-height: 100px; background-color: #fafafa; }
+        #resultados { margin-top: 15px; font-weight: bold; padding: 10px; border-radius: 5px; text-align: center; }
+        .status-testing { margin-top: 25px; padding-top: 15px; border-top: 1px solid #eee; text-align: center; font-size: 14px; color: #666; }
+        .status-testing img { vertical-align: middle; margin-left: 10px; }
+        table { margin-top: 10px; border-collapse: collapse; width: 100%; }
+        td { border: 1px solid #333; padding: 10px; text-align: center; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Panel de Ejercicios (26-30)</h1>
+        <div class="controles">
+            <select id="operacion">
+                <option value="" disabled selected>-- Selecciona un Ejercicio --</option>
+                <option value="ejemplo26">Ejercicio 26: Subarray Máximo</option>
+                <option value="ejemplo27">Ejercicio 27: Combinar Vectores</option>
+                <option value="ejemplo28">Ejercicio 28: Criba de Eratóstenes</option>
+                <option value="ejemplo29">Ejercicio 29: Multiplicación de Matrices</option>
+                <option value="ejemplo30">Ejercicio 30: Ordenamiento Merge Sort</option>
+            </select>
+            <button id="ejecutar">Cargar Interfaz</button>
+        </div>
+        <div id="resultados">Selecciona una opción y presiona "Cargar Interfaz"</div>
+        <div id="cajas">Aquí aparecerán los controles del ejercicio seleccionado.</div>
+        
+        <div class="status-testing">
+            <span>Estado de las Pruebas Unitarias (Jest):</span>
+            <!-- Enlaces actualizados con los datos de eg316277-web -->
+            <a href="https://github.com/eg316277-web/Edwin-Gomez-5EJERCICIOS/actions" target="_blank">
+                <img src="https://github.com/eg316277-web/Edwin-Gomez-5EJERCICIOS/actions/workflows/nodejs-test.yml/badge.svg" alt="Estado del Testing">
+            </a>
+        </div>
+    </div>
+    <script type="module" src="archivos.js/principal.js"></script>
+</body>
+</html>
